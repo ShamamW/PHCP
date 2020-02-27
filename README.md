@@ -42,13 +42,29 @@ Only SNPs that are identical in both modern and ancient data will be used in the
 ## Required Parameters
 
 --target &nbsp; &nbsp; &nbsp; ID of a single pseudo-haplotype to analyze  
+
 --chr &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Chromosome number to analyze  
+
 --ancient &nbsp; &nbsp; The prefixes of the pseudo-haplotypes files.  
 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; If they have the same prefix, only one prefix can be provided.  
 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; If they have different prefixes, two prefixes are required: the first for the genomic data and the second for the  
 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; samples list. The genomic data file name should be in the form of <prefix_ancient>.ph and the name of the file  
 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; with the IDs should be of the form <prefix_ancient>.ids.  
+
 --modern &nbsp; &nbsp;The prefixes of the phased data files. If they have the same prefix, only one prefix can be provided.  
 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; If they have different prefixes, two prefixes are required: the first for the genomic data and the second for the  
-&nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; samples list. The genomic data file name should be in the form of <prefix_modern>.haps and the name of the file with ids list should be of the form <prefix_modern>.ids
---out	Output suffix. The output files names would be of the form: chrom<chr>_target_length_<out>  
+&nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; samples list. The genomic data file name should be in the form of <prefix_modern>.haps and the name of the  
+&nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; file with ids list should be of the form <prefix_modern>.ids  
+
+--out &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Output suffix. The output files names would be of the form: chrom<chr>_target_length_<out>  
+  
+## Optional parameters
+--donors &nbsp; &nbsp; A file with list of donor populations, each population in a separate line.  
+&nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;Default: all samples in <prefix_modern>.haps.  
+
+--theta &nbsp; &nbsp; &nbsp; &nbsp;The mutation rate for ChromoPainter. Default: 0.00138488.  
+
+--N &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;The Ne parameter of ChromoPainter (related to the effective population size). Default: 64.5698.
+
+## Output
+The file chrom<chr>_target_length_<out> will contain the expected length of genetic material (in Morgan) copied from each ordered pair of donor haplotypes. It is in a matrix format, where the value in the row i and column j (x<sub>i,j</sub>) is the length of the genetic material copied from haplotypes i and j. The matrix is symmetric so x<sub>i,j</sub>=x<sub>i,j</sub>.
