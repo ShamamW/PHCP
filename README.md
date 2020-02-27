@@ -67,4 +67,11 @@ Only SNPs that are identical in both modern and ancient data will be used in the
 --N &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;The Ne parameter of ChromoPainter (related to the effective population size). Default: 64.5698.
 
 ## Output
-The file chrom<chr>_target_length_<out> will contain the expected length of genetic material (in Morgan) copied from each ordered pair of donor haplotypes. It is in a matrix format, where the value in the row i and column j (x<sub>i,j</sub>) is the length of the genetic material copied from haplotypes i and j. The matrix is symmetric so x<sub>i,j</sub>=x<sub>i,j</sub>.
+The file chrom<chr>_target_length_<out> will contain the expected length of genetic material (in Morgan) copied from each ordered pair of donor haplotypes. It is in a matrix format, where the value in the row i and column j (x<sub>i,j</sub>) is the length of the genetic material copied from haplotypes i and j. The matrix is symmetric so x<sub>i,j</sub>=x<sub>i,j</sub>.  
+
+## Example
+For pseudo-haplotype sample called ID_1, pseudo-haplotypes data file called ancient_data.ph with a list of pseudo-haplotypes in ancient_data.ids, and phased data file called phased_data.haps with samples list in phased_data.ids, the command line for analyzing chromosome 1 would be as follows:  
+
+Rscript phcp.R --target ID_1 --modern phased_data --ancient ancient_data --chr 1 --out example
+
+  
