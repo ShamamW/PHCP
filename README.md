@@ -15,21 +15,28 @@ Rscript phcp.R --target <pseudo_haplotype_ID> --modern <prefix_of_phased_data>
 To reduce running time, PHCP runs on each chromosome separately, so analyses of different chromosomes can be run in parallel.
 
 ## Inputs
-PHCP requires the target pseudo-haplotypes, as well as phased haplotypes that will serve as donors.
+PHCP requires the target pseudo-haplotypes, as well as phased haplotypes that will serve as donors.  
+
 Pseudo-haplotypes should be provided in two files:
 
 1. Genomic data. The file requires the following columns (in this order): chromosome number, base pair (BP), allele 1, allele 2, SNP ID, genetic distance in Morgans, and then one column for each pseudo-haplotype. Pseudo-haplotypes columns should include the values 0,1 and NA for missing reads. The file can include pseudo-haplotypes that will not be analyzed.
 For example, this is the representation of two SNPs and three individuals:  
-1 752566 G A rs3094315 0.0201296 1 0 1  
-1 842013 T G rs7419119 0.0225176 0 NA 1
-The file name should be of the form <prefix_ancient>.ph  
+
+   1 752566 G A rs3094315 0.0201296 1 0 1  
+   1 842013 T G rs7419119 0.0225176 0 NA 1  
+  
+   The file name should be of the form <prefix_ancient>.ph
+
+
 
 2. Sample IDs and populations. The file should contain two columns, ID in the first column and population in the second column. The file should include all samples from the genomic data file, in the same order.
-For example, here is a list of three samples from two different populations:
-ID_1 popX
-ID_2 popX
-ID_3 popY
-The file name should be of the form <prefix>.ids
+For example, here is a list of three samples from two different populations:  
+
+   ID_1 popX  
+   ID_2 popX  
+   ID_3 popY  
+
+   The file name should be of the form <prefix>.ids
 
 Phased data should include two files:
 
